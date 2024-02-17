@@ -7,25 +7,18 @@ param(
     # $kernel = "kernel8.img"
 
     # bullseye, working
-    $Image = "2023-05-03-raspios-bullseye-armhf-lite",
-    $machine = "raspi3b",
-    $cpu = "cortex-a53",
-    $dtb = "bcm2710-rpi-3-b.dtb",
-    $kernel = "kernel8.img"
-
-    ## bookworm, boots but no tty
-    # $Image = "2023-12-11-raspios-bookworm-armhf-lite",
+    # $Image = "2023-05-03-raspios-bullseye-armhf-lite",
     # $machine = "raspi3b",
     # $cpu = "cortex-a53",
     # $dtb = "bcm2710-rpi-3-b.dtb",
     # $kernel = "kernel8.img"
 
-#     ## netbootxyz
-#     $Image = "netbootxyz",
-#     $machine = "raspi3b",
-#     $cpu = "cortex-a53",
-#     $dtb = "bcm2710-rpi-3-b.dtb",
-#     $kernel = "kernel8.img"
+    # bookworm, boots but no tty
+    # $Image = "2023-12-11-raspios-bookworm-armhf-lite",
+    # $machine = "raspi3b",
+    # $cpu = "cortex-a53",
+    # $dtb = "bcm2710-rpi-3-b.dtb",
+    # $kernel = "kernel8.img"
 )
 
 while (-not $Image) {
