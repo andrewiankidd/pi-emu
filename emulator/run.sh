@@ -18,7 +18,6 @@ MEM=${MEM:="1G"}
 DTB=${DTB:="bcm2710-rpi-3-b.dtb"}
 KERNEL=${KERNEL:="kernel8.img"}
 IMAGE=${IMAGE:="2023-12-11-raspios-bookworm-armhf-lite"}
-IMAGE_IS_VALID=false
 
 # Check if image exists locally
 if [ ! -e "$PWD/emulator/images/$Image" ]; then
