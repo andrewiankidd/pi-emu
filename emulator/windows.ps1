@@ -6,7 +6,7 @@ param(
     # $dtb = "bcm2710-rpi-3-b.dtb",
     # $kernel = "kernel8.img"
 
-    ## bullseye, working
+    # bullseye, working
     $Image = "2023-05-03-raspios-bullseye-armhf-lite",
     $machine = "raspi3b",
     $cpu = "cortex-a53",
@@ -19,6 +19,13 @@ param(
     # $cpu = "cortex-a53",
     # $dtb = "bcm2710-rpi-3-b.dtb",
     # $kernel = "kernel8.img"
+
+#     ## netbootxyz
+#     $Image = "netbootxyz",
+#     $machine = "raspi3b",
+#     $cpu = "cortex-a53",
+#     $dtb = "bcm2710-rpi-3-b.dtb",
+#     $kernel = "kernel8.img"
 )
 
 while (-not $Image) {
@@ -31,7 +38,8 @@ while (-not $Image) {
     -machine $machine `
     -cpu $cpu `
     -m 1G `
-    -net user,hostfwd=tcp::5022-:22 `
+    -device usb-net,netdev=net0 `
+    -netdev user,id=net0,hostfwd=tcp::5555-:22 `
     -drive "file=$PWD\emulator\images\$($image)\image.img,if=sd,index=0,media=disk,format=raw,id=disk0" `
     -dtb "$PWD\emulator\images\$($image)\$dtb" `
     -kernel "$PWD\emulator\images\$($image)\$($kernel)" `
