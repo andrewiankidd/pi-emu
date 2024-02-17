@@ -45,4 +45,6 @@ while (-not $Image) {
     -kernel "$PWD\emulator\images\$($image)\$($kernel)" `
     -append 'rw earlyprintk loglevel=8 console=ttyAMA0,115200 dwc_otg.lpm_enable=0 root=/dev/mmcblk0p2 rootdelay=1' `
     -serial mon:stdio `
+    -device usb-mouse `
+    -device usb-kbd `
     -no-reboot
