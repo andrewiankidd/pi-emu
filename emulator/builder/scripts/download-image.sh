@@ -2,9 +2,9 @@
 set -e
 
 ## buster
-# DOWNLOAD_IMAGE=raspios_lite_armhf-2021-05-28
+DOWNLOAD_IMAGE=raspios_lite_armhf-2021-05-28
 ## bullseye
-DOWNLOAD_IMAGE=raspios_lite_armhf-2023-05-03
+# DOWNLOAD_IMAGE=raspios_lite_armhf-2023-05-03
 ## bookworm
 # DOWNLOAD_IMAGE=raspios_lite_armhf-2023-12-11
 ## latest
