@@ -12,7 +12,7 @@ This repository contains scripts for automating setup of arm64 emulation of Rasp
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/andrewiankidd/raspios-arm64-emulation.git
+   git clone https://github.com/andrewiankidd/pi-emu.git
    ```
 
 2. From the terminal execute the builder script
@@ -35,12 +35,12 @@ This repository contains scripts for automating setup of arm64 emulation of Rasp
 
 ## Configuration
 
-You can customize the emulation settings by modifying the `run_emulation.sh` script. Adjust parameters such as memory allocation, CPU architecture, and additional QEMU options based on your requirements.
+TODO
 
 ## Contributing
 
-If you find issues or have suggestions for improvements, feel free to open an [issue](https://github.com/andrewiankidd/raspios-arm64-emulation/issues) or submit a [pull request](https://github.com/andrewiankidd/raspios-arm64-emulation/pulls).
+If you find issues or have suggestions for improvements, feel free to open an [issue](https://github.com/andrewiankidd/pi-emu/issues) or submit a [pull request](https://github.com/andrewiankidd/pi-emu/pulls).
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+N/A
