@@ -44,3 +44,5 @@ If you find issues or have suggestions for improvements, feel free to open an [i
 ## License
 
 N/A
+
+![screenshot](assets/screenshot.png)

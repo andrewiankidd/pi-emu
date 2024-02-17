@@ -3,21 +3,23 @@ param(
     $cpu = "cortex-a53",
     $mem = "1G",
     $dtb = "bcm2710-rpi-3-b.dtb",
-    $kernel = "kernel8.img"
-
-    # bullseye, working
-    # $Image = "2023-05-03-raspios-bullseye-armhf-lite",
-    # bookworm, works in UI, but not in console
-    # $Image = "2023-12-11-raspios-bookworm-armhf-lite",
-
-    # buster, wont boot
-    $Image = "2021-05-07-raspios-buster-armhf-lite"
+    $kernel = "kernel8.img",
+    [ValidateSet(
+        # buster, wont boot
+        "2021-05-07-raspios-buster-armhf-lite",
+        # bullseye, working
+        "2023-05-03-raspios-bullseye-armhf-lite",
+        # bookworm, works in UI, but not in console
+        "2023-12-11-raspios-bookworm-armhf-lite"
+    )]
+    [string]
+    $Image = "2023-12-11-raspios-bookworm-armhf-lite"
 )
 
 while (-not $Image) {
     $Images = Get-ChildItem -Path "$PWD\emulator\images" -Directory | ForEach-Object { $_.Name }
     $Images | ForEach-Object { "> $($_)" }
-    $Image = Read-Host "Please select an image"
+    Read-Host "Please select an image"
 }
 
 & "C:\Program Files\qemu\qemu-system-aarch64.exe" `
