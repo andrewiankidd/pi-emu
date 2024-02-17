@@ -1,11 +1,12 @@
 
-# Raspios Arm64 Emulation Scripts
+# RasPiOS ARM64 Emulation Scripts
 
-This repository contains scripts for automating setup of arm64 emulation of Raspios using QEMU. Emulating arm64 architecture is useful for testing and development on systems that do not natively support the ARM architecture.
+This repository contains scripts for automating setup of arm64 emulation of RasPiOS using QEMU. Emulating arm64 architecture is useful for testing and development on systems that do not natively support the ARM architecture.
 
 ## Prerequisites
 
 - [QEMU](https://www.qemu.org/) installed on your system, and available in PATH
+- [Docker]() if on Windows
 
 
 ## Setup
@@ -15,23 +16,29 @@ This repository contains scripts for automating setup of arm64 emulation of Rasp
    git clone https://github.com/andrewiankidd/pi-emu.git
    ```
 
-2. From the terminal execute the builder script
-
-   ```bash
-   .\emulator\builder\build-win.ps1
-   ```
-
-3. Files should be generated in the 'images' directory
-
 ## Usage
 
 1. Run the emulation script:
 
-   ```bash
-   ./emulator/windows.ps1
+    **Linux**
+   ```bash title="Linux"
+   ./emulator/run.sh
+   ```
+    **Windows**
+    ```bash
+   ./emulator/run.ps1
    ```
 
-   This script sets up QEMU with the necessary parameters to emulate arm64 architecture using the Raspios image.
+   This script has some predefined RasPiOS releases, with a current default value of bookworm.
+    | Image    | Boot Status |
+    | -------- | ------- |
+    | 2021-05-07-raspios-buster-armhf-lite | ❌ |
+    | 2023-05-03-raspios-bullseye-armhf-lite | ✅ |
+    | 2023-12-11-raspios-bookworm-armhf-lite | ✅ |
+
+   If the image doesn't exist locally, it will be downloaded and 'built' into an QEMU friendly format.
+
+   This script then executes QEMU with the necessary parameters to emulate the RasPiOS image, with arm64 architecture.
 
 ## Configuration
 

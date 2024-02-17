@@ -1,15 +1,8 @@
 #!/bin/bash
 set -e
 
-## buster
-# DOWNLOAD_IMAGE=raspios_lite_armhf-2021-05-28
-## bullseye
-# DOWNLOAD_IMAGE=raspios_lite_armhf-2023-05-03
-## bookworm
-DOWNLOAD_IMAGE=raspios_lite_armhf-2023-12-11
-## latest
-# DOWNLOAD_IMAGE=latest
-
+# get DOWNLOAD_IMAGE var if it exists, or default to 'latest'
+DOWNLOAD_IMAGE=${DOWNLOAD_IMAGE:="latest"}
 DOWNLOAD_PAGE=https://downloads.raspberrypi.org/raspios_lite_armhf/images/
 DOWNLOAD_LINK=$DOWNLOAD_PAGE$DOWNLOAD_IMAGE
 
@@ -24,4 +17,5 @@ if [[ "$DOWNLOAD_IMAGE" == "latest" ]]; then
 fi
 
 # download latest image
+echo "Downloading: $DOWNLOAD_LINK"
 wget $DOWNLOAD_LINK -R html -nc -P build -l 1 -c -e robots=off --no-check-certificate -w 2 -r -nH --cut-dirs=3 -np -R "index.html*" -A .xz,.zip

@@ -4,24 +4,16 @@ param(
     $mem = "1G",
     $dtb = "bcm2710-rpi-3-b.dtb",
     $kernel = "kernel8.img",
-    [ValidateSet(
-        # buster, wont boot
-        "2021-05-07-raspios-buster-armhf-lite",
-        # bullseye, working
-        "2023-05-03-raspios-bullseye-armhf-lite",
-        # bookworm, works in UI, but not in console
-        "2023-12-11-raspios-bookworm-armhf-lite"
-    )]
-    [string]
     $Image = "2023-12-11-raspios-bookworm-armhf-lite"
 )
 
-while (-not $Image) {
-    $Images = Get-ChildItem -Path "$PWD\emulator\images" -Directory | ForEach-Object { $_.Name }
-    $Images | ForEach-Object { "> $($_)" }
-    Read-Host "Please select an image"
+# Check if image exists locally
+if (-not (Test-Path -Path "$PWD\emulator\images\$Image")) {
+    Write-Warning "Image '$Image' not found! Downloading."
+    & $PWD\emulator\builder\build.ps1 -Image $Image
 }
 
+# Run Qemu
 & "C:\Program Files\qemu\qemu-system-aarch64.exe" `
     -machine $machine `
     -cpu $cpu `
